@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "techson_client\client.csproj", "{13F96EA8-071C-48E4-9C14-39DDAC40243A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "techson_client", "techson_client\techson_client.csproj", "{13F96EA8-071C-48E4-9C14-39DDAC40243A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
