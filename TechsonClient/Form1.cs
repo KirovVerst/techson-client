@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ImageResizeComponent;
 using ImageFormatComponent;
+using ImageGrayScaleComponent;
 
 namespace TechsonClient
 {
@@ -18,11 +19,11 @@ namespace TechsonClient
         public Form1()
         {
             InitializeComponent();
-            string path = @"\\Mac\Home\Desktop\kitten.jpg";
+            string path = @"\\Mac\Home\Desktop\formated-kitten.png";
             try
             {
-                ImageFormat imgFormat = new ImageFormat(path);
-                string result = imgFormat.SetPngFormat();
+                ImageGrayScale imgFormat = new ImageGrayScale(path);
+                string result = imgFormat.transform();
                 System.Console.WriteLine(result);
             }
             catch (FileNotFoundException ex)

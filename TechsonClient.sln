@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizeComponent", "Ima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFormatComponent", "ImageFormatComponent\ImageFormatComponent.csproj", "{626A320D-4FF4-46F0-8164-69F9F3DE702F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGrayScaleComponent", "ImageGrayScaleComponent\ImageGrayScaleComponent.csproj", "{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
