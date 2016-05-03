@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ImageResizeComponent")]
+[assembly: AssemblyTitle("ImageConverterComponent")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ImageResizeComponent")]
+[assembly: AssemblyProduct("ImageConverterComponent")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("3817eeee-84e2-4db7-bdef-210b38d2fc88")]
+[assembly: Guid("b79ef27a-17e3-4dbd-a1e2-c90d62c0b857")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

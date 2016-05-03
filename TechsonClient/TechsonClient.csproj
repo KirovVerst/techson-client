@@ -44,14 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +78,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ImageConverterComponent\ImageToByteComponent.csproj">
+      <Project>{8e309382-49da-41a6-a814-7a0cdb45c06b}</Project>
+      <Name>ImageToByteComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ImageFormatComponent\ImageFormatComponent.csproj">
       <Project>{626a320d-4ff4-46f0-8164-69f9f3de702f}</Project>
       <Name>ImageFormatComponent</Name>
@@ -83,8 +90,8 @@
       <Project>{ad61cab0-4b10-46a5-b4ee-92a324eafc28}</Project>
       <Name>ImageGrayScaleComponent</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ImageResize\ImageResizeComponent.csproj">
-      <Project>{c610b124-0017-4c0f-bfa8-fec474f93175}</Project>
+    <ProjectReference Include="..\ImageResizeComponent\ImageResizeComponent.csproj">
+      <Project>{d55416ab-f3e2-4dc3-997e-e27585327266}</Project>
       <Name>ImageResizeComponent</Name>
     </ProjectReference>
   </ItemGroup>

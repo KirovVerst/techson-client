@@ -5,11 +5,13 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechsonClient", "TechsonClient\TechsonClient.csproj", "{0231C735-8453-4E43-B67B-26789E346C88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizeComponent", "ImageResize\ImageResizeComponent.csproj", "{C610B124-0017-4C0F-BFA8-FEC474F93175}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFormatComponent", "ImageFormatComponent\ImageFormatComponent.csproj", "{626A320D-4FF4-46F0-8164-69F9F3DE702F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGrayScaleComponent", "ImageGrayScaleComponent\ImageGrayScaleComponent.csproj", "{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageToByteComponent", "ImageConverterComponent\ImageToByteComponent.csproj", "{8E309382-49DA-41A6-A814-7A0CDB45C06B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizeComponent", "ImageResizeComponent\ImageResizeComponent.csproj", "{D55416AB-F3E2-4DC3-997E-E27585327266}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +23,6 @@ Global
 		{0231C735-8453-4E43-B67B-26789E346C88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0231C735-8453-4E43-B67B-26789E346C88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0231C735-8453-4E43-B67B-26789E346C88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C610B124-0017-4C0F-BFA8-FEC474F93175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C610B124-0017-4C0F-BFA8-FEC474F93175}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C610B124-0017-4C0F-BFA8-FEC474F93175}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C610B124-0017-4C0F-BFA8-FEC474F93175}.Release|Any CPU.Build.0 = Release|Any CPU
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626A320D-4FF4-46F0-8164-69F9F3DE702F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E309382-49DA-41A6-A814-7A0CDB45C06B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E309382-49DA-41A6-A814-7A0CDB45C06B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E309382-49DA-41A6-A814-7A0CDB45C06B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E309382-49DA-41A6-A814-7A0CDB45C06B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55416AB-F3E2-4DC3-997E-E27585327266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55416AB-F3E2-4DC3-997E-E27585327266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55416AB-F3E2-4DC3-997E-E27585327266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55416AB-F3E2-4DC3-997E-E27585327266}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
