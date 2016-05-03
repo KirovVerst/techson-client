@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace ImageResizeComponent
 {
-    public class ImageResize 
+    public class ImageResize
     {
         private string m_imagePath;
         private string m_resultImagePath;
@@ -18,7 +18,8 @@ namespace ImageResizeComponent
 
         public ImageResize(string imagePath, string resultImagePath = null)
         {
-            if (File.Exists(imagePath)){
+            if (File.Exists(imagePath))
+            {
                 m_imagePath = String.Copy(imagePath);
                 m_imageBytes = File.ReadAllBytes(m_imagePath);
             }
@@ -50,7 +51,7 @@ namespace ImageResizeComponent
 
                     using (ImageFactory imageFactory = new ImageFactory(preserveExifData: true))
                     {
-                        imageFactory.Load(inStream).Resize(size).Save(outStream); 
+                        imageFactory.Load(inStream).Resize(size).Save(outStream);
                         outStream.WriteTo(m_resultFile);
                         outStream.Close();
                     }
@@ -60,7 +61,7 @@ namespace ImageResizeComponent
             }
             return m_resultImagePath;
         }
-			
+
         public string ImagePath
         {
             get

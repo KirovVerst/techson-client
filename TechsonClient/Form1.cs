@@ -8,9 +8,10 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ImageResizeComponent;
 using ImageFormatComponent;
 using ImageGrayScaleComponent;
+using ImageConverterComponent;
+using ImageResizeComponent;
 
 namespace TechsonClient
 {
@@ -19,12 +20,13 @@ namespace TechsonClient
         public Form1()
         {
             InitializeComponent();
-            string path = @"\\Mac\Home\Desktop\formated-kitten.png";
+            string path = @"\\Mac\Home\Desktop\grayscaled-formated-kitten.png";
             try
             {
-                ImageGrayScale imgFormat = new ImageGrayScale(path);
-                string result = imgFormat.transform();
-                System.Console.WriteLine(result);
+                ImageResize imgResize = new ImageResize(path);
+                path = imgResize.Resize(30, 30);
+                ImageToByte imgToByte = new ImageToByte(path);
+                int[] result = imgToByte.convert();
             }
             catch (FileNotFoundException ex)
             {
