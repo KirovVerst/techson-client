@@ -31,12 +31,12 @@ namespace ImageConverterComponent
         {
             m_image.Save(m_resultImagePath, System.Drawing.Imaging.ImageFormat.Bmp);
             int[] result = new int[m_image.Width*m_image.Height];
-            for (int i = 0; i < m_image.Width; i++)
+            for (int y = 0; y < m_image.Height; y++)
             {
-                for (int j = 0; j < m_image.Height; j++)
+                for (int x = 0; x < m_image.Width; x++)
                 {
-                    Color pixel = m_image.GetPixel(i,j);
-                    result[i*10 + j] = 255 - pixel.R;
+                    Color pixel = m_image.GetPixel(y,x);
+                    result[x*10 + y] = Convert.ToInt32((255-pixel.A)/255.0 *( 255 - pixel.G));
                 }
             }
             return result;

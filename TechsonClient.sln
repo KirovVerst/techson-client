@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageToByteComponent", "Ima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizeComponent", "ImageResizeComponent\ImageResizeComponent.csproj", "{D55416AB-F3E2-4DC3-997E-E27585327266}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomForestComponent", "RandomForestComponent\RandomForestComponent.csproj", "{02642356-8E6D-436C-8817-38ACB6F832F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D55416AB-F3E2-4DC3-997E-E27585327266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55416AB-F3E2-4DC3-997E-E27585327266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55416AB-F3E2-4DC3-997E-E27585327266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02642356-8E6D-436C-8817-38ACB6F832F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02642356-8E6D-436C-8817-38ACB6F832F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02642356-8E6D-436C-8817-38ACB6F832F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02642356-8E6D-436C-8817-38ACB6F832F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
