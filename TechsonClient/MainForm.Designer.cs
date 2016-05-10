@@ -32,22 +32,22 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.imageChooseButton = new System.Windows.Forms.Button();
             this.methodsChooseBox = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
+            this.neuralNetworkRadioButton = new System.Windows.Forms.RadioButton();
+            this.gradientBoostingRadioButton = new System.Windows.Forms.RadioButton();
             this.randomForestRadioButton = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.allMethodsRadioMethod = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
             this.methodBox1 = new System.Windows.Forms.GroupBox();
-            this.label_1_4 = new System.Windows.Forms.Label();
-            this.label_1_9 = new System.Windows.Forms.Label();
-            this.label_1_3 = new System.Windows.Forms.Label();
-            this.label_1_8 = new System.Windows.Forms.Label();
+            this.label_1_5 = new System.Windows.Forms.Label();
+            this.label_1_0 = new System.Windows.Forms.Label();
             this.label_1_6 = new System.Windows.Forms.Label();
             this.label_1_1 = new System.Windows.Forms.Label();
             this.label_1_7 = new System.Windows.Forms.Label();
             this.label_1_2 = new System.Windows.Forms.Label();
-            this.label_1_5 = new System.Windows.Forms.Label();
-            this.label_1_0 = new System.Windows.Forms.Label();
+            this.label_1_8 = new System.Windows.Forms.Label();
+            this.label_1_3 = new System.Windows.Forms.Label();
+            this.label_1_9 = new System.Windows.Forms.Label();
+            this.label_1_4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.methodsChooseBox.SuspendLayout();
             this.methodBox1.SuspendLayout();
@@ -55,7 +55,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
+            this.pictureBox.Image = global::TechsonClient.Properties.Resources.image_not_found_4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef;
             this.pictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.InitialImage")));
             this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
@@ -67,20 +67,20 @@
             // imageChooseButton
             // 
             this.imageChooseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.imageChooseButton.Image = global::TechsonClient.Properties.Resources.search_engine_1;
             this.imageChooseButton.Location = new System.Drawing.Point(276, 138);
             this.imageChooseButton.Name = "imageChooseButton";
             this.imageChooseButton.Size = new System.Drawing.Size(50, 43);
             this.imageChooseButton.TabIndex = 1;
-            this.imageChooseButton.Text = " ...";
             this.imageChooseButton.UseVisualStyleBackColor = true;
             this.imageChooseButton.Click += new System.EventHandler(this.chooseImage);
             // 
             // methodsChooseBox
             // 
-            this.methodsChooseBox.Controls.Add(this.radioButton3);
-            this.methodsChooseBox.Controls.Add(this.radioButton1);
+            this.methodsChooseBox.Controls.Add(this.neuralNetworkRadioButton);
+            this.methodsChooseBox.Controls.Add(this.gradientBoostingRadioButton);
             this.methodsChooseBox.Controls.Add(this.randomForestRadioButton);
-            this.methodsChooseBox.Controls.Add(this.radioButton2);
+            this.methodsChooseBox.Controls.Add(this.allMethodsRadioMethod);
             this.methodsChooseBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.methodsChooseBox.Location = new System.Drawing.Point(276, 12);
             this.methodsChooseBox.Name = "methodsChooseBox";
@@ -89,28 +89,27 @@
             this.methodsChooseBox.TabStop = false;
             this.methodsChooseBox.Text = "Methods";
             // 
-            // radioButton2
+            // neuralNetworkRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 90);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 22);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "All methods";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.neuralNetworkRadioButton.AutoSize = true;
+            this.neuralNetworkRadioButton.Location = new System.Drawing.Point(6, 66);
+            this.neuralNetworkRadioButton.Name = "neuralNetworkRadioButton";
+            this.neuralNetworkRadioButton.Size = new System.Drawing.Size(129, 22);
+            this.neuralNetworkRadioButton.TabIndex = 4;
+            this.neuralNetworkRadioButton.TabStop = true;
+            this.neuralNetworkRadioButton.Text = "Neural Network";
+            this.neuralNetworkRadioButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // gradientBoostingRadioButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(332, 138);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 43);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Start";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.gradientBoostingRadioButton.AutoSize = true;
+            this.gradientBoostingRadioButton.Location = new System.Drawing.Point(6, 43);
+            this.gradientBoostingRadioButton.Name = "gradientBoostingRadioButton";
+            this.gradientBoostingRadioButton.Size = new System.Drawing.Size(145, 22);
+            this.gradientBoostingRadioButton.TabIndex = 3;
+            this.gradientBoostingRadioButton.TabStop = true;
+            this.gradientBoostingRadioButton.Text = "Gradient Boosting";
+            this.gradientBoostingRadioButton.UseVisualStyleBackColor = true;
             // 
             // randomForestRadioButton
             // 
@@ -123,27 +122,28 @@
             this.randomForestRadioButton.Text = "Random Forest";
             this.randomForestRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // allMethodsRadioMethod
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 43);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(145, 22);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Gradient Boosting";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.allMethodsRadioMethod.AutoSize = true;
+            this.allMethodsRadioMethod.Location = new System.Drawing.Point(6, 90);
+            this.allMethodsRadioMethod.Name = "allMethodsRadioMethod";
+            this.allMethodsRadioMethod.Size = new System.Drawing.Size(103, 22);
+            this.allMethodsRadioMethod.TabIndex = 1;
+            this.allMethodsRadioMethod.TabStop = true;
+            this.allMethodsRadioMethod.Text = "All methods";
+            this.allMethodsRadioMethod.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // button2
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 66);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(129, 22);
-            this.radioButton3.TabIndex = 4;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Neural Network";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.Green;
+            this.button2.Location = new System.Drawing.Point(332, 138);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 43);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Start";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.startPredict);
             // 
             // methodBox1
             // 
@@ -166,42 +166,23 @@
             this.methodBox1.Text = "MethodName1";
             this.methodBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label_1_4
+            // label_1_5
             // 
-            this.label_1_4.AutoSize = true;
-            this.label_1_4.Location = new System.Drawing.Point(346, 28);
-            this.label_1_4.Name = "label_1_4";
-            this.label_1_4.Size = new System.Drawing.Size(27, 18);
-            this.label_1_4.TabIndex = 8;
-            this.label_1_4.Text = "4 :";
-            this.label_1_4.Click += new System.EventHandler(this.label9_Click);
+            this.label_1_5.AutoSize = true;
+            this.label_1_5.Location = new System.Drawing.Point(6, 52);
+            this.label_1_5.Name = "label_1_5";
+            this.label_1_5.Size = new System.Drawing.Size(27, 18);
+            this.label_1_5.TabIndex = 17;
+            this.label_1_5.Text = "5 :";
             // 
-            // label_1_9
+            // label_1_0
             // 
-            this.label_1_9.AutoSize = true;
-            this.label_1_9.Location = new System.Drawing.Point(346, 52);
-            this.label_1_9.Name = "label_1_9";
-            this.label_1_9.Size = new System.Drawing.Size(27, 18);
-            this.label_1_9.TabIndex = 9;
-            this.label_1_9.Text = "9 :";
-            // 
-            // label_1_3
-            // 
-            this.label_1_3.AutoSize = true;
-            this.label_1_3.Location = new System.Drawing.Point(261, 28);
-            this.label_1_3.Name = "label_1_3";
-            this.label_1_3.Size = new System.Drawing.Size(27, 18);
-            this.label_1_3.TabIndex = 10;
-            this.label_1_3.Text = "3 :";
-            // 
-            // label_1_8
-            // 
-            this.label_1_8.AutoSize = true;
-            this.label_1_8.Location = new System.Drawing.Point(261, 52);
-            this.label_1_8.Name = "label_1_8";
-            this.label_1_8.Size = new System.Drawing.Size(27, 18);
-            this.label_1_8.TabIndex = 11;
-            this.label_1_8.Text = "8 :";
+            this.label_1_0.AutoSize = true;
+            this.label_1_0.Location = new System.Drawing.Point(6, 28);
+            this.label_1_0.Name = "label_1_0";
+            this.label_1_0.Size = new System.Drawing.Size(27, 18);
+            this.label_1_0.TabIndex = 16;
+            this.label_1_0.Text = "0 :";
             // 
             // label_1_6
             // 
@@ -239,23 +220,42 @@
             this.label_1_2.TabIndex = 12;
             this.label_1_2.Text = "2 :";
             // 
-            // label_1_5
+            // label_1_8
             // 
-            this.label_1_5.AutoSize = true;
-            this.label_1_5.Location = new System.Drawing.Point(6, 52);
-            this.label_1_5.Name = "label_1_5";
-            this.label_1_5.Size = new System.Drawing.Size(27, 18);
-            this.label_1_5.TabIndex = 17;
-            this.label_1_5.Text = "5 :";
+            this.label_1_8.AutoSize = true;
+            this.label_1_8.Location = new System.Drawing.Point(261, 52);
+            this.label_1_8.Name = "label_1_8";
+            this.label_1_8.Size = new System.Drawing.Size(27, 18);
+            this.label_1_8.TabIndex = 11;
+            this.label_1_8.Text = "8 :";
             // 
-            // label_1_0
+            // label_1_3
             // 
-            this.label_1_0.AutoSize = true;
-            this.label_1_0.Location = new System.Drawing.Point(6, 28);
-            this.label_1_0.Name = "label_1_0";
-            this.label_1_0.Size = new System.Drawing.Size(27, 18);
-            this.label_1_0.TabIndex = 16;
-            this.label_1_0.Text = "0 :";
+            this.label_1_3.AutoSize = true;
+            this.label_1_3.Location = new System.Drawing.Point(261, 28);
+            this.label_1_3.Name = "label_1_3";
+            this.label_1_3.Size = new System.Drawing.Size(27, 18);
+            this.label_1_3.TabIndex = 10;
+            this.label_1_3.Text = "3 :";
+            // 
+            // label_1_9
+            // 
+            this.label_1_9.AutoSize = true;
+            this.label_1_9.Location = new System.Drawing.Point(346, 52);
+            this.label_1_9.Name = "label_1_9";
+            this.label_1_9.Size = new System.Drawing.Size(27, 18);
+            this.label_1_9.TabIndex = 9;
+            this.label_1_9.Text = "9 :";
+            // 
+            // label_1_4
+            // 
+            this.label_1_4.AutoSize = true;
+            this.label_1_4.Location = new System.Drawing.Point(346, 28);
+            this.label_1_4.Name = "label_1_4";
+            this.label_1_4.Size = new System.Drawing.Size(27, 18);
+            this.label_1_4.TabIndex = 8;
+            this.label_1_4.Text = "4 :";
+            this.label_1_4.Click += new System.EventHandler(this.label9_Click);
             // 
             // mainForm
             // 
@@ -286,10 +286,10 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button imageChooseButton;
         private System.Windows.Forms.GroupBox methodsChooseBox;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton allMethodsRadioMethod;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton neuralNetworkRadioButton;
+        private System.Windows.Forms.RadioButton gradientBoostingRadioButton;
         private System.Windows.Forms.RadioButton randomForestRadioButton;
         private System.Windows.Forms.GroupBox methodBox1;
         private System.Windows.Forms.Label label_1_9;

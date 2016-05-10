@@ -19,7 +19,9 @@ namespace TechsonClient
 {
     public partial class mainForm : Form
     {
-        private bool is_scaled = false;
+        private bool isWindowScaled = false;
+        private bool isImageChosen = false;
+
         private Label[] labels1;
         public mainForm()
         {
@@ -39,11 +41,24 @@ namespace TechsonClient
                 Bitmap newImage = new Bitmap(fdlg.FileName);
                 pictureBox.ImageLocation = fdlg.FileName;
                 pictureBox.Image = newImage;
+                isImageChosen = true;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void startPredict(object sender, EventArgs e)
         {
+            if (!isImageChosen)
+            {
+                MessageBox.Show("Please, choose a image ...", "Error");
+                return;
+            }
+
+            if (!isMethodChosen())
+            {
+                MessageBox.Show("Please, choose a method ...", "Error");
+                return;
+            }
+
             minimizeForm();
             clearFields();
 
@@ -51,7 +66,16 @@ namespace TechsonClient
 
             RandomForestClassifier clsr = new RandomForestClassifier(data);
 
-            double[] predicts = clsr.predict();
+            double[] predicts;
+            try
+            {
+                predicts = clsr.predict();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                return;
+            }
 
             for (int i = 0; i < labels1.Length; i++)
             {
@@ -59,6 +83,11 @@ namespace TechsonClient
             }
 
             maximizeForm();
+        }
+
+        private bool isMethodChosen()
+        {
+            return randomForestRadioButton.Checked || neuralNetworkRadioButton.Checked || gradientBoostingRadioButton.Checked || allMethodsRadioMethod.Checked;
         }
 
         private void clearFields(){
@@ -74,20 +103,20 @@ namespace TechsonClient
 
         private void maximizeForm(){
             Size oldSize = mainForm.ActiveForm.Size;
-            if (!is_scaled)
+            if (!isWindowScaled)
             {
                 mainForm.ActiveForm.Size = new Size(oldSize.Width, oldSize.Height + methodBox1.Height + 20);
-                is_scaled = true;
+                isWindowScaled = true;
             }
         }
 
         private void minimizeForm()
         {
             Size oldSize = mainForm.ActiveForm.Size;
-            if (is_scaled)
+            if (isWindowScaled)
             {
                 mainForm.ActiveForm.Size = new Size(oldSize.Width, oldSize.Height - methodBox1.Height - 20);
-                is_scaled = false;
+                isWindowScaled = false;
             }
         }
 
