@@ -83,6 +83,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GradientBoostingComponent\GradientBoostingComponent.csproj">
+      <Project>{a5813a31-cbf0-4941-865d-f71761af043d}</Project>
+      <Name>GradientBoostingComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ImageConverterComponent\ImageToByteComponent.csproj">
       <Project>{8e309382-49da-41a6-a814-7a0cdb45c06b}</Project>
       <Name>ImageToByteComponent</Name>
@@ -98,6 +102,10 @@
     <ProjectReference Include="..\ImageResizeComponent\ImageResizeComponent.csproj">
       <Project>{d55416ab-f3e2-4dc3-997e-e27585327266}</Project>
       <Name>ImageResizeComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeuralNetworkComponent\NeuralNetworkComponent.csproj">
+      <Project>{34033a65-038e-4fe3-91ef-2bb4a97de820}</Project>
+      <Name>NeuralNetworkComponent</Name>
     </ProjectReference>
     <ProjectReference Include="..\RandomForestComponent\RandomForestComponent.csproj">
       <Project>{02642356-8e6d-436c-8817-38acb6f832f5}</Project>
@@ -124,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\restart2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-play-128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

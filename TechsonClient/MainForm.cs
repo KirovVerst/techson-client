@@ -8,12 +8,17 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ImageFormatComponent;
+using Newtonsoft.Json.Linq;
+// image preprocessing
+using ImageFormatComponent; 
 using ImageGrayScaleComponent;
 using ImageConverterComponent;
 using ImageResizeComponent;
+// machine learning components
 using RandomForestComponent;
-using Newtonsoft.Json.Linq;
+using NeuralNetworkComponent;
+using GradientBoostingComponent;
+
 
 namespace TechsonClient
 {
@@ -72,11 +77,11 @@ namespace TechsonClient
                 return;
             }
 
-            resetHeight(minHeight);
-            clearFields();
+            ResetHeight(minHeight);
+            ResetLabels();
             if (isImageUpdated)
             {
-                m_data = transfomImage();
+                m_data = TransfomImage();
             }
             
             double[,] predicts;
@@ -85,16 +90,16 @@ namespace TechsonClient
             {
                 if (gradientBoostingRadioButton.Checked)
                 {
-                    predicts = new double[1, 10];
+                    predicts = GradientBoostingPredict();
                     methodNames = new string[1] { "Gradient Boosting" };
                 }
                 else if (neuralNetworkRadioButton.Checked)
                 {
-                    predicts = new double[1, 10];
+                    predicts = NeuralNetworkPredict();
                     methodNames = new string[1] { "Neural Network" };
                 }else if (randomForestRadioButton.Checked)
                 {
-                    predicts = randomForestPredict();
+                    predicts = RandomForestPredict();
                     methodNames = new string[1] { "Random Forest" };
                 }
                 else
@@ -111,10 +116,10 @@ namespace TechsonClient
 
             isImageUpdated = false;
             
-            showResults(predicts, methodNames);
+            ShowResults(predicts, methodNames);
         }
 
-        private void showResults(double[,] predicts, string[] methodNames)
+        private void ShowResults(double[,] predicts, string[] methodNames)
         {
             int nrows = predicts.GetLength(0);
             int ncols = predicts.GetLength(1);
@@ -129,15 +134,15 @@ namespace TechsonClient
 
             if (methodNames.Length > 1)
             {
-                resetHeight(maxHeight);
+                ResetHeight(maxHeight);
             }
             else
             {
-                resetHeight(midHeight);
+                ResetHeight(midHeight);
             }
         }
 
-        private double[,] randomForestPredict()
+        private double[,] RandomForestPredict()
         {
             RandomForestClassifier cls = new RandomForestClassifier(m_data);
             double[] predicts = cls.predict();
@@ -148,12 +153,41 @@ namespace TechsonClient
             return result;
         }
 
+        private double[,] NeuralNetworkPredict()
+        {
+            NeuralNetworkClassifier cls = new NeuralNetworkClassifier(m_data);
+            double[] predicts = cls.predict();
+            double[,] result = new double[1, predicts.Length];
+            for (int i = 0; i < predicts.Length; i++)
+            {
+                result[0, i] = predicts[i];
+            }
+            return result;
+        }
+
+        private double[,] GradientBoostingPredict()
+        {
+            GradientBoostingClassifier cls = new GradientBoostingClassifier(m_data);
+            double[] predicts = cls.predict();
+            double[,] result = new double[1, predicts.Length];
+            for (int i = 0; i < predicts.Length; i++)
+            {
+                result[0, i] = predicts[i];
+            }
+            return result;
+        }
+
+        private double[,] AllMethodsPredict()
+        {
+
+        }
+
         private bool isMethodChosen()
         {
             return randomForestRadioButton.Checked || neuralNetworkRadioButton.Checked || gradientBoostingRadioButton.Checked || allMethodsRadioMethod.Checked;
         }
 
-        private void clearFields(){
+        private void ResetLabels(){
             int nrows = labels.GetLength(0);
             int ncols = labels.GetLength(1);
             for (int i = 0; i < nrows; i++)
@@ -169,27 +203,27 @@ namespace TechsonClient
             }
         }
 
-        private void resetHeight(int newHeight)
+        private void ResetHeight(int newHeight)
         {
             Size oldSize = mainForm.ActiveForm.Size;
             mainForm.ActiveForm.Size = new Size(oldSize.Width, newHeight);
         }
 
-        private int[] transfomImage(){
-            string imagePath;
+        private int[] TransfomImage(){
+            Image image = pictureBox.Image;
 
-            using (ImageFormat imgConverter = new ImageFormat(pictureBox.ImageLocation))
+            using (ImageFormat imgConverter = new ImageFormat(image))
             {
-                imagePath = imgConverter.SetPngFormat();
-                using (ImageGrayScale imgGrayScale = new ImageGrayScale(imagePath))
+                image = imgConverter.SetPngFormat();
+                using (ImageGrayScale imgGrayScale = new ImageGrayScale(image))
                 {
-                    imagePath = imgGrayScale.transform();
-                    using (ImageResize imgResize = new ImageResize(imagePath))
+                    image = imgGrayScale.Transform();
+                    using (ImageResize imgResize = new ImageResize(image))
                     {
-                        imagePath = imgResize.Resize(28, 28);
-                        using (ImageToByte imgToByte = new ImageToByte(imagePath))
+                        image = imgResize.Resize(28, 28);
+                        using (ImageToByte imgToByte = new ImageToByte(image))
                         {
-                            return imgToByte.convert();
+                            return imgToByte.Transform();
                         }
                     }
                 }
@@ -199,15 +233,15 @@ namespace TechsonClient
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            resetHeight(minHeight);
-            clearFields();
+            ResetHeight(minHeight);
+            ResetLabels();
             neuralNetworkRadioButton.Checked = false;
             gradientBoostingRadioButton.Checked = false;
             randomForestRadioButton.Checked = false;
             allMethodsRadioMethod.Checked = false;
             isImageChosen = false;
             pictureBox.Image = null;
-            clearFields();
+            ResetLabels();
         }
     }
 }

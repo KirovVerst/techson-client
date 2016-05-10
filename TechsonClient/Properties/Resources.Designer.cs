@@ -63,6 +63,16 @@ namespace TechsonClient.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_play_128 {
+            get {
+                object obj = ResourceManager.GetObject("icon-play-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_not_found_4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef {
             get {
                 object obj = ResourceManager.GetObject("image-not-found-4a963b95bf081c3ea02923dceaeb3f8085e1a654fc54840aac61a57a60903fef", resourceCulture);

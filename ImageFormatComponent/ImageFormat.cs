@@ -12,57 +12,20 @@ namespace ImageFormatComponent
 {
     public class ImageFormat : Component
     {
-        private string m_imagePath;
-        private string m_resultImagePath = null;
+        private Image m_resultImage;
         private Image m_image;
 
-        public ImageFormat(string imagePath, string resultImagePath = null)
+        public ImageFormat(Image image)
         {
-            if (File.Exists(imagePath)){
-                m_imagePath = String.Copy(imagePath);
-                m_image = Image.FromFile(m_imagePath);
-            }
-            else
-            {
-                Console.WriteLine(imagePath);
-                throw new FileNotFoundException(imagePath);
-            }
-
-            if (resultImagePath != null)
-            {
-                m_resultImagePath = String.Copy(resultImagePath);
-            }
-            else
-            {
-                string fileName = Path.GetFileNameWithoutExtension(m_imagePath);
-                string dirName = Path.GetDirectoryName(m_imagePath);
-                m_resultImagePath = dirName + "\\" + "formated-" + fileName;
-            }
+            m_image = image;
         }
 
-        public string SetPngFormat(Int32 quality = 100)
+        public Image SetPngFormat(Int32 quality = 100)
         {
-            m_resultImagePath += ".png";
-            m_image.Save(m_resultImagePath, System.Drawing.Imaging.ImageFormat.Png);
-            
-            return m_resultImagePath;
-        }
-
-
-			
-        public string ImagePath
-        {
-            get
-            {
-                return m_imagePath;
-            }
-        }
-        public string ResultImagePath
-        {
-            get
-            {
-                return m_resultImagePath;
-            }
+            MemoryStream stream = new MemoryStream();
+            m_image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            m_resultImage = Image.FromStream(stream);
+            return m_resultImage;
         }
     }
 }

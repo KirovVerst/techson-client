@@ -479,7 +479,7 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::TechsonClient.Properties.Resources.play_xxl;
+            this.button2.BackgroundImage = global::TechsonClient.Properties.Resources.icon_play_128;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.Green;
