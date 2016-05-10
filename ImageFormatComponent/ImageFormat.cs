@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace ImageFormatComponent
 {
-    public class ImageFormat
+    public class ImageFormat : Component
     {
         private string m_imagePath;
         private string m_resultImagePath = null;
