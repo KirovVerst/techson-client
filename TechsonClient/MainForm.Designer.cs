@@ -68,7 +68,7 @@
             this.label_3_9 = new System.Windows.Forms.Label();
             this.label_3_4 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.imageChooseButton = new System.Windows.Forms.Button();
             this.methodsChooseBox.SuspendLayout();
@@ -477,19 +477,19 @@
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
-            // button2
+            // startButton
             // 
-            this.button2.BackgroundImage = global::TechsonClient.Properties.Resources.icon_play_128;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(381, 137);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5);
-            this.button2.Size = new System.Drawing.Size(50, 43);
-            this.button2.TabIndex = 3;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.startPredict);
+            this.startButton.BackgroundImage = global::TechsonClient.Properties.Resources.icon_play_128;
+            this.startButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.startButton.ForeColor = System.Drawing.Color.Green;
+            this.startButton.Location = new System.Drawing.Point(385, 137);
+            this.startButton.Name = "startButton";
+            this.startButton.Padding = new System.Windows.Forms.Padding(5);
+            this.startButton.Size = new System.Drawing.Size(50, 43);
+            this.startButton.TabIndex = 3;
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startPredict);
             // 
             // pictureBox
             // 
@@ -524,7 +524,7 @@
             this.Controls.Add(this.methodBox3);
             this.Controls.Add(this.methodBox2);
             this.Controls.Add(this.methodBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.methodsChooseBox);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.imageChooseButton);
@@ -552,7 +552,7 @@
         private System.Windows.Forms.Button imageChooseButton;
         private System.Windows.Forms.GroupBox methodsChooseBox;
         private System.Windows.Forms.RadioButton allMethodsRadioMethod;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.RadioButton neuralNetworkRadioButton;
         private System.Windows.Forms.RadioButton gradientBoostingRadioButton;
         private System.Windows.Forms.RadioButton randomForestRadioButton;

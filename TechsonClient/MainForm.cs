@@ -77,6 +77,10 @@ namespace TechsonClient
                 return;
             }
 
+            startButton.Enabled = false;
+            imageChooseButton.Enabled = false;
+            resetButton.Enabled = false;
+
             ResetHeight(minHeight);
             ResetLabels();
             if (isImageUpdated)
@@ -115,7 +119,11 @@ namespace TechsonClient
             }
 
             isImageUpdated = false;
-            
+
+            startButton.Enabled = false;
+            imageChooseButton.Enabled = true;
+            resetButton.Enabled = true;
+
             ShowResults(predicts, methodNames);
         }
 
