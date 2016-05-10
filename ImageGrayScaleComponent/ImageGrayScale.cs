@@ -3,6 +3,7 @@ using ImageProcessor.Imaging;
 using ImageProcessor.Imaging.Formats;
 using ImageProcessor.Imaging.Filters.Photo;
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ImageGrayScaleComponent
 {
-    public class ImageGrayScale
+    public class ImageGrayScale : Component
     {
 
         private string m_imagePath;

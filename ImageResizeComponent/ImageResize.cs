@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace ImageResizeComponent
 {
-    public class ImageResize
+    public class ImageResize : Component
     {
         private string m_imagePath;
         private string m_resultImagePath;

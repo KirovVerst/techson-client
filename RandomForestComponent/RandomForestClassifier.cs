@@ -5,11 +5,12 @@ using System.Text;
 using System.Net;
 using System.Threading.Tasks;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using Newtonsoft.Json.Linq;
 
 namespace RandomForestComponent
 {
-    public class RandomForestClassifier
+    public class RandomForestClassifier: Component
     {
         private Uri m_url;
         private string m_data;

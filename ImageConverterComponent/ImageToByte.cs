@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace ImageConverterComponent
 {
-    public class ImageToByte
+    public class ImageToByte : Component
     {
         private string m_imagePath;
         private string m_resultImagePath = null;
