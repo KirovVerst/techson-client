@@ -20,7 +20,7 @@ namespace RandomForestComponent
             m_data = string.Join(",", pixels);
         }
 
-        public double[] predict(){
+        public double[] Predict(){
             WebClient webClient = new WebClient();
             NameValueCollection formData = new NameValueCollection();
             formData["image"] = m_data;
