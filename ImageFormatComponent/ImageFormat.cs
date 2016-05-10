@@ -24,6 +24,7 @@ namespace ImageFormatComponent
             }
             else
             {
+                Console.WriteLine(imagePath);
                 throw new FileNotFoundException(imagePath);
             }
 
