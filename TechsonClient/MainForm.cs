@@ -21,13 +21,25 @@ namespace TechsonClient
     {
         private bool isWindowScaled = false;
         private bool isImageChosen = false;
+        private bool isImageUpdated = false;
 
-        private Label[] labels1;
+        private int maxHeight = 560;
+        private int midHeight = 340;
+        private int minHeight = 230;
+        private Label[,] labels;
+        private GroupBox[] methodBoxes;
+
+        private int[] m_data;
+
         public mainForm()
         {
             InitializeComponent();
-            labels1 = new Label[10] {label_1_0, label_1_1,label_1_2, label_1_3, label_1_4,label_1_5,
-            label_1_6, label_1_7, label_1_8, label_1_9};
+            labels = new Label[3,10] {
+                {label_1_0, label_1_1,label_1_2, label_1_3, label_1_4,label_1_5, label_1_6, label_1_7, label_1_8, label_1_9},
+                {label_2_0, label_2_1,label_2_2, label_2_3, label_2_4,label_2_5, label_2_6, label_2_7, label_2_8, label_2_9},
+                {label_3_0, label_3_1,label_3_2, label_3_3, label_3_4,label_3_5, label_3_6, label_3_7, label_3_8, label_3_9}
+            };
+            methodBoxes = new GroupBox[3] { methodBox1, methodBox2, methodBox3 };
         }
 
         private void chooseImage(object sender, EventArgs e)
@@ -39,9 +51,10 @@ namespace TechsonClient
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
                 Bitmap newImage = new Bitmap(fdlg.FileName);
-                pictureBox.ImageLocation = fdlg.FileName;
                 pictureBox.Image = newImage;
+                pictureBox.ImageLocation = fdlg.FileName;
                 isImageChosen = true;
+                isImageUpdated = true;
             }
         }
 
@@ -59,17 +72,36 @@ namespace TechsonClient
                 return;
             }
 
-            minimizeForm();
+            resetHeight(minHeight);
             clearFields();
-
-            int[] data = transfomImage();
-
-            RandomForestClassifier clsr = new RandomForestClassifier(data);
-
-            double[] predicts;
+            if (isImageUpdated)
+            {
+                m_data = transfomImage();
+            }
+            
+            double[,] predicts;
+            string[] methodNames;
             try
             {
-                predicts = clsr.predict();
+                if (gradientBoostingRadioButton.Checked)
+                {
+                    predicts = new double[1, 10];
+                    methodNames = new string[1] { "Gradient Boosting" };
+                }
+                else if (neuralNetworkRadioButton.Checked)
+                {
+                    predicts = new double[1, 10];
+                    methodNames = new string[1] { "Neural Network" };
+                }else if (randomForestRadioButton.Checked)
+                {
+                    predicts = randomForestPredict();
+                    methodNames = new string[1] { "Random Forest" };
+                }
+                else
+                {
+                    predicts = new double[3, 10];
+                    methodNames = new string[3] { "Random Forest", "Neural Network", "Gradient Boosting"};
+                }
             }
             catch (Exception ex)
             {
@@ -77,12 +109,43 @@ namespace TechsonClient
                 return;
             }
 
-            for (int i = 0; i < labels1.Length; i++)
+            isImageUpdated = false;
+            
+            showResults(predicts, methodNames);
+        }
+
+        private void showResults(double[,] predicts, string[] methodNames)
+        {
+            int nrows = predicts.GetLength(0);
+            int ncols = predicts.GetLength(1);
+            for (int i = 0; i < nrows; i++)
             {
-                labels1[i].Text += " " + string.Format("{0:0.00}", predicts[i]);
+                for (int j = 0; j < ncols; j++)
+                {
+                    labels[i, j].Text += " " + string.Format("{0:0.00}", predicts[i, j]);
+                }
+                methodBoxes[i].Text = methodNames[i];
             }
 
-            maximizeForm();
+            if (methodNames.Length > 1)
+            {
+                resetHeight(maxHeight);
+            }
+            else
+            {
+                resetHeight(midHeight);
+            }
+        }
+
+        private double[,] randomForestPredict()
+        {
+            RandomForestClassifier cls = new RandomForestClassifier(m_data);
+            double[] predicts = cls.predict();
+            double [,] result = new double[1,predicts.Length];
+            for(int i = 0; i < predicts.Length; i++){
+                result[0, i] = predicts[i];
+            }
+            return result;
         }
 
         private bool isMethodChosen()
@@ -91,57 +154,60 @@ namespace TechsonClient
         }
 
         private void clearFields(){
-            for (var i = 0; i < labels1.Length; i++)
+            int nrows = labels.GetLength(0);
+            int ncols = labels.GetLength(1);
+            for (int i = 0; i < nrows; i++)
             {
-                if (labels1[i].Text[labels1[i].Text.Length - 1] != ':'){
-                    int lastSpace = labels1[i].Text.LastIndexOf(' ');
-                    labels1[i].Text = labels1[i].Text.Substring(0, lastSpace);
+                for (int j = 0; j < ncols; j++)
+                {
+                    if (labels[i, j].Text[labels[i, j].Text.Length - 1] != ':')
+                    {
+                        int lastSpace = labels[i, j].Text.LastIndexOf(' ');
+                        labels[i, j].Text = labels[i, j].Text.Substring(0, lastSpace);
+                    }
                 }
-                
             }
         }
 
-        private void maximizeForm(){
-            Size oldSize = mainForm.ActiveForm.Size;
-            if (!isWindowScaled)
-            {
-                mainForm.ActiveForm.Size = new Size(oldSize.Width, oldSize.Height + methodBox1.Height + 20);
-                isWindowScaled = true;
-            }
-        }
-
-        private void minimizeForm()
+        private void resetHeight(int newHeight)
         {
             Size oldSize = mainForm.ActiveForm.Size;
-            if (isWindowScaled)
-            {
-                mainForm.ActiveForm.Size = new Size(oldSize.Width, oldSize.Height - methodBox1.Height - 20);
-                isWindowScaled = false;
-            }
+            mainForm.ActiveForm.Size = new Size(oldSize.Width, newHeight);
         }
 
         private int[] transfomImage(){
             string imagePath;
 
-            Console.WriteLine(pictureBox.ImageLocation);
-            ImageFormat imgConverter = new ImageFormat(pictureBox.ImageLocation);
-            imagePath = imgConverter.SetPngFormat();
-            ImageGrayScale imgGrayScale = new ImageGrayScale(imagePath);
-            imagePath = imgGrayScale.transform();
-            ImageResize imgResize = new ImageResize(imagePath);
-            imagePath = imgResize.Resize(28,28);
-            ImageToByte imgToByte = new ImageToByte(imagePath);
-            return imgToByte.convert();
+            using (ImageFormat imgConverter = new ImageFormat(pictureBox.ImageLocation))
+            {
+                imagePath = imgConverter.SetPngFormat();
+                using (ImageGrayScale imgGrayScale = new ImageGrayScale(imagePath))
+                {
+                    imagePath = imgGrayScale.transform();
+                    using (ImageResize imgResize = new ImageResize(imagePath))
+                    {
+                        imagePath = imgResize.Resize(28, 28);
+                        using (ImageToByte imgToByte = new ImageToByte(imagePath))
+                        {
+                            return imgToByte.convert();
+                        }
+                    }
+                }
+            }            
         }
 
-        private void label9_Click(object sender, EventArgs e)
+
+        private void resetButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            resetHeight(minHeight);
+            clearFields();
+            neuralNetworkRadioButton.Checked = false;
+            gradientBoostingRadioButton.Checked = false;
+            randomForestRadioButton.Checked = false;
+            allMethodsRadioMethod.Checked = false;
+            isImageChosen = false;
+            pictureBox.Image = null;
+            clearFields();
         }
     }
 }
