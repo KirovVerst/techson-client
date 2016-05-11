@@ -77,6 +77,10 @@ namespace TechsonClient
                 return;
             }
 
+            startButton.Enabled = false;
+            imageChooseButton.Enabled = false;
+            resetButton.Enabled = false;
+
             ResetHeight(minHeight);
             ResetLabels();
             if (isImageUpdated)
@@ -104,7 +108,7 @@ namespace TechsonClient
                 }
                 else
                 {
-                    predicts = new double[3, 10];
+                    predicts = AllMethodsPredict();
                     methodNames = new string[3] { "Random Forest", "Neural Network", "Gradient Boosting"};
                 }
             }
@@ -115,7 +119,11 @@ namespace TechsonClient
             }
 
             isImageUpdated = false;
-            
+
+            startButton.Enabled = false;
+            imageChooseButton.Enabled = true;
+            resetButton.Enabled = true;
+
             ShowResults(predicts, methodNames);
         }
 
@@ -145,7 +153,7 @@ namespace TechsonClient
         private double[,] RandomForestPredict()
         {
             RandomForestClassifier cls = new RandomForestClassifier(m_data);
-            double[] predicts = cls.predict();
+            double[] predicts = cls.Predict();
             double [,] result = new double[1,predicts.Length];
             for(int i = 0; i < predicts.Length; i++){
                 result[0, i] = predicts[i];
@@ -168,7 +176,7 @@ namespace TechsonClient
         private double[,] GradientBoostingPredict()
         {
             GradientBoostingClassifier cls = new GradientBoostingClassifier(m_data);
-            double[] predicts = cls.predict();
+            double[] predicts = cls.Predict();
             double[,] result = new double[1, predicts.Length];
             for (int i = 0; i < predicts.Length; i++)
             {
@@ -179,7 +187,39 @@ namespace TechsonClient
 
         private double[,] AllMethodsPredict()
         {
+            Container container = new Container();
+            RandomForestClassifier randomForest = new RandomForestClassifier(m_data);
+            GradientBoostingClassifier gradientBoosting = new GradientBoostingClassifier(m_data);
+            NeuralNetworkClassifier neuralNetwork = new NeuralNetworkClassifier(m_data);
 
+            container.Add(randomForest);
+            container.Add(gradientBoosting);
+            container.Add(neuralNetwork);
+
+            double[] predicts;
+            double[,] results = new double[3, 10];    
+
+            predicts = randomForest.Predict();
+            for (var i = 0; i < predicts.Length; i++)
+            {
+                results[0, i] = predicts[i];
+            }
+
+            predicts = neuralNetwork.predict();
+            for (var i = 0; i < predicts.Length; i++)
+            {
+                results[1, i] = predicts[i];
+            }
+
+            predicts = gradientBoosting.Predict();
+            for (var i = 0; i < predicts.Length; i++)
+            {
+                results[2, i] = predicts[i];
+            }
+
+            container.Dispose();
+
+            return results;
         }
 
         private bool isMethodChosen()
