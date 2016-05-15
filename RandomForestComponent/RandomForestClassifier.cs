@@ -14,9 +14,10 @@ namespace RandomForestComponent
     {
         private Uri m_url;
         private string m_data;
+        private const string hostname = "http://46.101.106.176";
         public RandomForestClassifier(int[] pixels)
         {
-            m_url = new Uri("http://46.101.106.176/api/v1/random_forest/");
+            m_url = new Uri(hostname + "/api/v1/random_forest/");
             m_data = string.Join(",", pixels);
         }
 
