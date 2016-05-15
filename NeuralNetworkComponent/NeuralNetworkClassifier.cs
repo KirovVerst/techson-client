@@ -13,10 +13,11 @@ namespace NeuralNetworkComponent
     public class NeuralNetworkClassifier: Component
     {
         private Uri m_url;
+        private const string hostname = "http://46.101.106.176";
         private string m_data;
         public NeuralNetworkClassifier(int[] pixels)
         {
-            m_url = new Uri("http://46.101.106.176/api/v1/random_forest/");
+            m_url = new Uri(hostname + "/api/v1/neural_network/");
             m_data = string.Join(",", pixels);
         }
 
