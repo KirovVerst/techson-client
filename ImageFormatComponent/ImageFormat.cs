@@ -20,7 +20,7 @@ namespace ImageFormatComponent
             m_image = image;
         }
 
-        public Image SetPngFormat(Int32 quality = 100)
+        public Image SetFormat()
         {
             MemoryStream stream = new MemoryStream();
             m_image.Save(stream, System.Drawing.Imaging.ImageFormat.Png);

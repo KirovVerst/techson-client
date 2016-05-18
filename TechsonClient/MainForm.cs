@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 // image preprocessing
-using ImageFormatComponent; 
+using ImageFormatComponent;
 using ImageGrayScaleComponent;
-using ImageConverterComponent;
+using ImageToArrayComponent;
 using ImageResizeComponent;
+using BlackWhiteImageComponent;
 // machine learning components
 using RandomForestComponent;
 using NeuralNetworkComponent;
@@ -87,7 +88,7 @@ namespace TechsonClient
             {
                 m_data = TransfomImage();
             }
-            
+
             double[,] predicts;
             string[] methodNames;
             try
@@ -197,7 +198,7 @@ namespace TechsonClient
             container.Add(neuralNetwork);
 
             double[] predicts;
-            double[,] results = new double[3, 10];    
+            double[,] results = new double[3, 10];
 
             predicts = randomForest.Predict();
             for (var i = 0; i < predicts.Length; i++)
@@ -252,22 +253,23 @@ namespace TechsonClient
         private int[] TransfomImage(){
             Image image = pictureBox.Image;
 
-            using (ImageFormat imgConverter = new ImageFormat(image))
+            using (ImageGrayScale imgGrayScale = new ImageGrayScale(image))
             {
-                image = imgConverter.SetPngFormat();
-                using (ImageGrayScale imgGrayScale = new ImageGrayScale(image))
+                image = imgGrayScale.Transform();
+                using (BlackWhiteImage imgBlackWhite = new BlackWhiteImage(image))
                 {
-                    image = imgGrayScale.Transform();
+                    image = imgBlackWhite.Transform();
                     using (ImageResize imgResize = new ImageResize(image))
                     {
-                        image = imgResize.Resize(28, 28);
-                        using (ImageToByte imgToByte = new ImageToByte(image))
+                        image = imgResize.Resize(30, 30);
+
+                        using (ImageToArray imgToByte = new ImageToArray(image))
                         {
                             return imgToByte.Transform();
                         }
                     }
                 }
-            }            
+            }
         }
 
 

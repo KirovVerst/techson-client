@@ -4,12 +4,12 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace ImageConverterComponent
+namespace ImageToArrayComponent
 {
-    public class ImageToByte: Component
+    public class ImageToArray: Component
     {
         private Bitmap m_image;
-        public ImageToByte(Image image)
+        public ImageToArray(Image image)
         {
             m_image = new Bitmap(image);
         }

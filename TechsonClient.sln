@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageFormatComponent", "Ima
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageGrayScaleComponent", "ImageGrayScaleComponent\ImageGrayScaleComponent.csproj", "{AD61CAB0-4B10-46A5-B4EE-92A324EAFC28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageToByteComponent", "ImageConverterComponent\ImageToByteComponent.csproj", "{8E309382-49DA-41A6-A814-7A0CDB45C06B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageToArrayComponent", "ImageConverterComponent\ImageToArrayComponent.csproj", "{8E309382-49DA-41A6-A814-7A0CDB45C06B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizeComponent", "ImageResizeComponent\ImageResizeComponent.csproj", "{D55416AB-F3E2-4DC3-997E-E27585327266}"
 EndProject
